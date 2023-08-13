@@ -12,14 +12,13 @@ jobs:
       - name: "dump github contex"
         run: echo '${{ toJson(github.event) }}' | jq
         shell: bash
-      - name: Create comment
-        uses: peter-evans/create-or-update-comment@v2
+      - name: Update PR with test results
+        uses: edumserrano/find-create-or-update-comment@v1
         with:
-          issue-number: ${{ github.event.issue.number }}
-          body: |
-            This is a multi-line test comment
-            - With GitHub **Markdown** :sparkles:
-            - Created by [create-or-update-comment][1]
-
-            [1]: https://github.com/peter-evans/create-or-update-comment
-          reactions: '+1'
+          issue-number: ${{ github.event.pull_request.number }}
+          body-includes: '<!-- pr-test-results -->'
+          comment-author: 'github-actions[bot]'
+          body: | # can be a single value or you can compose text with multi-line values
+            <!-- pr-test-results -->
+            ${{ steps.test-results.outputs.results }}
+          edit-mode: replace
