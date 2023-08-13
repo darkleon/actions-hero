@@ -26,4 +26,4 @@ jobs:
         with:
           file: app/dockerfile
           push: true
-          tags: user/app:latest
+          tags: darkleon/app:latest
