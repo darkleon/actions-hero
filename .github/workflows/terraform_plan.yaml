@@ -1,9 +1,7 @@
 name: Prepare plan for Terraform deployment
 
 on:
-  push:
-    branches:
-      - master1
+  workflow_dispatch:
 
 jobs:
   tf_fmt:
