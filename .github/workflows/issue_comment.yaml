@@ -15,7 +15,7 @@ jobs:
       - name: Update PR with test results
         uses: edumserrano/find-create-or-update-comment@v1
         with:
-          issue-number: ${{ github.event.pull_request.number }}
+          issue-number: ${{ github.event.issue.number }}
           body-includes: '<!-- pr-test-results -->'
           comment-author: 'github-actions[bot]'
           body: | # can be a single value or you can compose text with multi-line values
