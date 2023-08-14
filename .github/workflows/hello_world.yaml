@@ -9,10 +9,10 @@ on:
       - main
   workflow_dispatch:
 
-defaults:
-  run:
-    shell: bash
-    working-directory: ./web
+# defaults:
+#   run:
+#     shell: bash
+#     working-directory: ./web
 
 jobs:
   hello:
